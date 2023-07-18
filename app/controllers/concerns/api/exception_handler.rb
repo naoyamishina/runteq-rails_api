@@ -22,8 +22,8 @@ module Api::ExceptionHandler
 
   def render_error(code, message, *error_messages)
     response = {
-        message: message,
-        errors: error_messages.compact
+      message: message,
+      errors: error_messages.compact
     }
 
     render json: response, status: code
