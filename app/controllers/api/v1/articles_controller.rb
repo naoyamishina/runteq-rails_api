@@ -4,7 +4,7 @@ module Api
   module V1
     class ArticlesController < BaseController
       before_action :set_article, only: :show
-      
+
       def index
         articles = Article.all
         json_string = ArticleSerializer.new(articles).serialized_json
@@ -13,7 +13,7 @@ module Api
       end
 
       def show
-        options = { include: [:user, :'user.name', :'user.email'] }
+        options = { include: %i[user user.name user.email] }
         json_string = ArticleSerializer.new(@article, options).serialized_json
 
         render json: json_string
