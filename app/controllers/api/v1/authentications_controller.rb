@@ -9,6 +9,8 @@ module Api
         raise ActiveRecord::RecordNotFound unless @user
 
         json_string = UserSerializer.new(@user).serialized_json
+        api_key = @user.activate_api_key!
+        response.headers['AccessToken'] = api_key.access_token
         render json: json_string
       end
     end
