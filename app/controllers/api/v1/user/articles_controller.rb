@@ -4,7 +4,7 @@ module Api
   module V1
     class User::ArticlesController < BaseController
       before_action :set_articles, only: :index
-      before_action :set_article, only: %i[show update destroy]
+      before_action :set_article, only: %i[update destroy]
 
       def index
         json_string = ArticleSerializer.new(@articles).serialized_json
