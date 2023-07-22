@@ -49,6 +49,7 @@ group :development, :test do
 end
 
 group :test do
+  gem "autodoc", group: :test
   gem 'capybara'
   gem 'webdrivers'
 end
